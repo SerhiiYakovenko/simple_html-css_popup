@@ -15,6 +15,7 @@ body {
 img {
   max-width: 100%;
   max-height: 40px;
+  border: solid 5px transparent;
 }
 
 .release {
@@ -26,11 +27,11 @@ img {
   left: 50%;
   transform: translate(-50%, -50%);
   text-align: center;
-  opacity: 0.8;
+  opacity: 0.6;
 }
 
 .nav {
-  margin: 10px;
+  margin: 5px;
   float: right;
   display: flex;
   align-items: center;
@@ -40,43 +41,46 @@ img {
   display: flex;
   flex-direction: row;
   justify-content: space-around;
+  align-items: center;
 }
 
 .nav-item {
   list-style: none;
   margin: 10px 5px;
+  border: solid 1px transparent;
 }
 
-.popup-item {
-  padding: 10px;
+.nav-item.console {
+  list-style: none;
+  outline: none;
+  border: solid 1px transparent;
 }
 
 .kottans:focus,
 .nav-item:focus,
-.input:focus + label,
-.menu-item:focus,
-input:focus + label,
+.input:focus+label,
 .popup-item:focus,
+.more-label:focus,
 .menu-item:focus {
   outline: none;
-  border: 1.5px inset gray;
+  box-shadow: 0 0 14px grey;
+  border-radius: 6px;
 }
 
 .kottans:hover,
+.input:hover+label,
 .popup-item:hover,
-.more-label:hover {
+.more-label:hover,
+.menu-item:hover {
   cursor: pointer;
   outline: none;
-  border: 1.5px inset gray;
+  box-shadow: 0 0 10px grey;
+  border-radius: 5px;
 }
 
 .menu__popup {
   display: block;
   padding: 8px;
-}
-
-.nav-item:hover {
-  cursor: pointer;
 }
 
 .popup-input,
@@ -88,19 +92,11 @@ input:focus + label,
 
 .popup-label {
   padding: 8px;
-  position: relative;
-  top: -25px;
   display: block;
   width: 150px;
-  height: 30px;
+  height: 40px;
   cursor: pointer;
   background: url(".././img/logo.svg") no-repeat center;
-}
-
-.xbox,
-.ps4 {
-  position: relative;
-  top: -15px;
 }
 
 .main {
@@ -120,28 +116,34 @@ input:focus + label,
   padding: 10px;
   overflow-y: scroll;
   z-index: 1;
-  border: 2px inset black;
   background-color: white;
   opacity: 0.7;
 }
 
-.popup-item {
+.popup-item,
+.console-xbox,
+.console-ps4 {
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  margin: 4px;
-  height: 80px;
-  width: 24%;
-  font-size: bold;
+  border: solid 1px transparent;
 }
 
-.popup-item > img {
+.popup-item {
+  margin: 4px;
+  padding: 5px;
+  height: 80px;
+  width: 24%;
+}
+
+
+.popup-item>img {
   width: 40px;
 }
 
-.popup-item > p {
-  font-size: 14px;
+.popup-item>p {
+  font-size: 13px;
   margin-top: 10px;
 }
 
@@ -165,14 +167,14 @@ input:focus + label,
   margin: 10px auto 0px auto;
 }
 
-.popup-input[type="checkbox"]:checked ~ .popup-main {
+.popup-input[type="checkbox"]:checked~.popup-main {
   display: flex;
 }
 
-.more-input[type="checkbox"]:checked ~ .hidden {
+.more-input[type="checkbox"]:checked~.hidden {
   display: flex;
 }
 
-.more-input[type="checkbox"]:checked ~ .more-label {
+.more-input[type="checkbox"]:checked~.more-label {
   display: none;
 }
